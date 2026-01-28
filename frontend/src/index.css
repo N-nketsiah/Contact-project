@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --ink: #0f172a;
+    --muted: #64748b;
+    --brand: #2563eb;
+    --brand-strong: #1d4ed8;
+    --brand-soft: rgba(37, 99, 235, 0.12);
+    --accent: #0ea5e9;
+    --surface: #ffffff;
+    --surface-soft: #f8fafc;
+    --ring: rgba(37, 99, 235, 0.25);
+  }
+
+  * {
+    @apply m-0 p-0 box-border;
+  }
+
+  body {
+    font-family: 'Source Sans 3', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    color: var(--ink);
+    background: #f8fafc;
+    min-height: 100vh;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Space Grotesk', 'Source Sans 3', system-ui, sans-serif;
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer components {
+  .app-shell {
+    background-image:
+      radial-gradient(900px 420px at 8% -10%, rgba(37, 99, 235, 0.16), transparent 60%),
+      radial-gradient(800px 520px at 92% 0%, rgba(14, 165, 233, 0.12), transparent 60%),
+      linear-gradient(180deg, #f8fafc 0%, #eef2f7 100%);
+  }
+
+  .glass-card {
+    @apply bg-white/80 backdrop-blur border border-white/60 rounded-2xl shadow-lg shadow-slate-200/60;
+  }
+
+  .card {
+    @apply bg-white rounded-2xl shadow-md shadow-slate-200/70 border border-slate-100 transition-all duration-300;
+  }
+
+  .card:hover {
+    @apply shadow-xl shadow-slate-200/80 -translate-y-0.5;
+  }
+
+  .badge {
+    @apply inline-flex items-center gap-2 rounded-full bg-blue-50 text-blue-700 px-3 py-1 text-xs font-semibold tracking-wide uppercase;
+  }
+
+  .btn {
+    @apply px-4 py-2.5 rounded-xl font-semibold transition-all duration-200 flex items-center gap-2;
+  }
+
+  .btn-primary {
+    @apply bg-blue-600 text-white hover:bg-blue-700 shadow-sm hover:shadow-md;
+  }
+
+  .btn-ghost {
+    @apply bg-white text-slate-700 border border-slate-200 hover:border-slate-300 hover:text-slate-900;
+  }
+
+  .btn-danger {
+    @apply bg-rose-500 text-white hover:bg-rose-600 shadow-sm hover:shadow-md;
+  }
+
+  .form-group {
+    @apply mb-4;
+  }
+
+  .form-label {
+    @apply block text-sm font-semibold text-slate-700 mb-2;
+  }
+
+  .form-input {
+    @apply w-full px-4 py-3 border border-slate-200 rounded-xl focus:outline-none focus:border-blue-500 focus:ring-2 transition-all bg-white/90;
+    box-shadow: 0 0 0 0 var(--ring);
+  }
+
+  .form-input:focus {
+    box-shadow: 0 0 0 4px var(--ring);
+  }
+
+  .input-error {
+    @apply border-rose-400 focus:border-rose-500;
+  }
+
+  .error-message {
+    @apply text-rose-600 text-sm mt-1.5 font-medium;
+  }
+
+  .success-message {
+    @apply text-emerald-600 text-sm mt-1.5 font-medium;
+  }
+
+  .stat-card {
+    @apply card px-5 py-4 flex flex-col gap-1;
+  }
+
+  .stat-label {
+    @apply text-xs uppercase tracking-widest text-slate-400 font-semibold;
+  }
+
+  .stat-value {
+    @apply text-2xl font-semibold text-slate-900;
+  }
+
+  .muted {
+    @apply text-slate-500;
+  }
+
+  .section-title {
+    @apply text-xl font-semibold text-slate-900;
+  }
+
+  .animate-rise {
+    animation: rise 520ms ease both;
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
